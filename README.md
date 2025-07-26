@@ -1,74 +1,84 @@
-# My Shelfie - Progetto di Ingegneria del Software 2022/2023 [PSP23]
- ![alt text](./src/main/resources/Graphics/piccola.jpg) 
-### Componenti del gruppo
+# My Shelfie – Software Engineering Project 2022/2023
+## 👥 Team Members
 * [Alessandro Mancini](https://github.com/alemancio5)
 * [Chiara Thien Thao Nguyen Ba](https://github.com/chiaranb)
 * [Flavia Nicotri](https://github.com/flanico)
 * [Stefano Morano](https://github.com/stefano-morano)
 
-## Introduzione
-MyShelfie è un gioco da tavolo di tipo strategico, in cui i giocatori si sfidano per arredare nel miglior modo possibile la propria libreria.
+## Project Overview
 
-Il progetto consiste nell'implementazione di un videogioco basato sul gioco da tavolo, il cui server deve essere in grado di gestire partite in connessione Socket e partite in connessione RMI.
+**MyShelfie** is a strategy board game where players compete to organize their bookshelf in the most efficient way possible.
 
-MyShelfie può essere giocato in due modalità: da terminale con interfaccia CLI o con interfaccia grafica GUI.
+This project is a digital implementation of the board game, featuring:
+- A multiplayer architecture supporting both **Socket** and **RMI** communication.
+- Two client interfaces: **CLI** (Command-Line) and **GUI** (Graphical).
+- Complete implementation of game rules, game state persistence, and chat functionality.
 
-Le regole del gioco si possono trovare in questa [pagina](https://www.craniocreations.it/prodotto/my-shelfie). 
+📖 [Official Game Rules](https://www.craniocreations.it/prodotto/my-shelfie)
 
-## Funzionalità implementate
-| Funzionalità        | Stato |
-|:--------------------|:-----:|
-| Regole Semplificate |   ✅   |
-| Regole Complete     |   ✅   |
-| Socket              |   ✅   |
-| RMI                 |   ✅   |
-| CLI                 |   ✅   |
-| GUI                 |   ✅   |
-| Chat                |   ✅   |
-| Persistenza         |   ✅   |
-| Resilienza          |   ❌   |
-| Partite Multiple    |   ❌   |
 
-## Come eseguire il programma
-Assicurarsi di avere installato Java 19 o superiore nel proprio sistema operativo.
+## Features
 
-### Aprire il server
-Per aprire il server, eseguire il seguente comando da terminale aperto nella cartella del Jar:
+| Feature              | Status |
+|----------------------|:------:|
+| Simplified Rules     | ✅      |
+| Complete Rules       | ✅      |
+| Socket Support       | ✅      |
+| RMI Support          | ✅      |
+| CLI Interface        | ✅      |
+| GUI Interface        | ✅      |
+| Chat System          | ✅      |
+| Game State Persistence | ✅   |
+| Fault Tolerance      | ❌      |
+| Multiple Concurrent Games | ❌ |
+
+---
+
+## How to Run
+
+> **Requirements**: Java 19 or higher installed on your system.
+
+### Starting the Server
+To launch the server, open a terminal in the folder containing the JAR file and run:
 
 ```java -jar ServerApp.jar```
 
-Successivamente indicare il numero delle due porte da utilizzare per la comunicazione Socket e RMI (se si vogliono utilizzare le porte di default premere invio). 
-Quando appare la scritta "server is running", il server è pronto per accettare connessioni.
+You will then be prompted to enter two port numbers for Socket and RMI communication.
+Press Enter to use the default ports.
+Once the message "server is running" appears, the server is ready to accept connections.
 
-### Aprire il client
-Per aprire il client, eseguire il seguente comando da terminale aperto nella cartella del Jar:
+### Starting the Client
+To launch the client, open a terminal in the folder containing the JAR file and run:
 
 ```java -jar ClientApp.jar```
 
-Inizialmente inserire c/g per eseguire il gioco con l'interfaccia a linea di comando [c] o con l'interfaccia grafica [g] (tutti i sistemi operativi sono supportati).
+You’ll be asked to choose the interface:
+	•	Enter c for the Command-Line Interface (CLI)
+	•	Enter g for the Graphical User Interface (GUI)
 
-#### Cli
-Inizialmente inserire s/r per scegliere se utilizzare la connessione Socket [s] o RMI [r].
-Successivamente inserire l'indirizzo IP del server e la porta del server (premere invio per utilizzare i valori delle porte di default).
+#### CLI Mode
+- First, choose the connection type:
+- Enter s for Socket or r for RMI
+- Then, enter the server’s IP address and port
+(Press Enter to use the default values)
 
-#### Gui
-Nella pagina della connessione, se si preme il tasto "continue" senza modificare nessun valore, il gioco si connetterà al server Socket/RMI con i valori delle porte di default.
+#### GUI Mode
+On the connection screen, click the “Continue” button without modifying any fields to connect to the server using the default Socket/RMI ports.
 
-## Tools
-Per la realizzazione del progetto sono stati utilizzati i seguenti tools:
-* [IntelliJ IDEA](https://www.jetbrains.com/idea/) - IDE utilizzato per lo sviluppo del progetto
+## Tools Used
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/) -  IDE used for development
 * [Maven](https://maven.apache.org/) - Dependency Management
-* [JavaFX](https://openjfx.io/) - GUI 
-* [Scene Builder](https://gluonhq.com/products/scene-builder/) - GUI 
-* [draw.io](https://app.diagrams.net/) - Diagrammi UML e Sequence Diagram
+* [JavaFX](https://openjfx.io/) - Graphical User Interface (GUI) 
+* [Scene Builder](https://gluonhq.com/products/scene-builder/) - GUI layout design 
+* [draw.io](https://app.diagrams.net/) - UML and Sequence diagrams
 
 ## Q&A
-### Come posso capire qual è l'effetto delle common goal cards sulla GUI?
-Per capire l'effetto delle common goal cards sulla GUI, basta cliccare con il mouse sopra la carta.
-### Cosa fare se la CLI non stampa i colori correttamente?
-Se la CLI non stampa i colori correttamente, è necessario aprire il CMD con amministratore e digitare il seguente comando:
+###  How can I see the effect of the Common Goal cards in the GUI?
+Click on a Common Goal card with the mouse to view its effect.
+### What if CLI colors are not displayed correctly?
+If colors in the CLI don’t display properly on Windows, open CMD as Administrator and run the following command:
 
 ```REG ADD HKCU\CONSOLE /f /v VirtualTerminalLevel /t REG_DWORD /d 1```
-### Cosa fare se la versione di java del mio sistema operativo non è compatibile con quella utilizzata per il progetto?
-Per far funzionare correttamente il programma è necessario installare la versione di java 19 o superiore.
-Il download si può trovare a questo [link](https://www.oracle.com/it/java/technologies/downloads/).
+###  What if my system’s Java version isn’t compatible?
+You must install Java version 19 or higher to run the program correctly.
+You can download it from the official Java website [link](https://www.oracle.com/it/java/technologies/downloads/).
