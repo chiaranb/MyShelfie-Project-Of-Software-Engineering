@@ -53,8 +53,8 @@ To launch the client, open a terminal in the folder containing the JAR file and 
 ```java -jar ClientApp.jar```
 
 You’ll be asked to choose the interface:
-	•	Enter c for the Command-Line Interface (CLI)
-	•	Enter g for the Graphical User Interface (GUI)
+- Enter c for the Command-Line Interface (CLI)
+- Enter g for the Graphical User Interface (GUI)
 
 #### CLI Mode
 - First, choose the connection type:
